@@ -1,5 +1,9 @@
 # 🌌 Solar System Consult
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e68175dc-971f-4e87-9e16-e4f9633d6ada" />
+<img width="1898" height="1077" alt="image" src="https://github.com/user-attachments/assets/b07733d9-df55-4fa1-84d3-22d52867323c" />
+
+
 ## 📖 Sobre o projeto
 
 O **Solar System Consult** é um site desenvolvido para consultar informações sobre planetas e outros corpos celestes por meio de uma API pública.
