@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Consult</title>
+    <link rel="stylesheet" href="interface.css">
+</head>
+<body>
+    <!-- Main title -->
+    <article class="bloco-title-principal" id="titulo-principal">
+        <h1 id="titulo-site">Solar System Consult</h1>
+        <h2 class="principal-subtitle" id="subtitulo-principal">
+            Discover more about bodies in our Solar System
+        </h2>
+    </article>
+
+    <!-- Search field -->
+    <article class="bloco-title-input" id="bloco-pesquisa">
+        <h2 class="subtitle" id="titulo-pesquisa">Type a celestial body</h2>
+        <form class="campo-pesquisa" id="form-pesquisa">
+            <input
+                type="text"
+                placeholder="Example: Earth, Mars, Jupiter or Moon"
+                id="corpo-celeste"
+                name="corpo"
+                autocomplete="off"
+                aria-label="Celestial body name"
+                required
+            >
+            <button type="submit" id="botao-pesquisar">Search</button>
+        </form>
+    </article>
+
+    <!-- The result panel stays hidden until a search is made -->
+    <article class="result-search" id="resultado" hidden>
+        <div class="conteudo-resultado">
+            <div class="area-imagem">
+                <img class="img-resultado" id="imagem-planeta" alt="" hidden>
+                <div class="imagem-indisponivel" id="imagem-indisponivel">
+                    Image not available
+                </div>
+            </div>
+
+            <div class="info-planetas">
+                <p id="linha-nome">Name: <span id="nome-planeta"></span></p>
+                <p>Body type: <span id="categoria"></span></p>
+                <p>Mass: <span id="massa"></span></p>
+                <p>Mean radius: <span id="raio"></span></p>
+                <p>Gravity: <span id="gravidade"></span></p>
+                <p>Average temperature: <span id="temperatura"></span></p>
+                <p>Distance from the Sun: <span id="distancia"></span></p>
+                <p>Orbital period: <span id="translacao"></span></p>
+                <p>Rotation period: <span id="rotacao"></span></p>
+                <p>Known moons: <span id="satelites"></span></p>
+            </div>
+        </div>
+        <p id="mensagem" role="status" aria-live="polite"></p>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer-site" id="rodape">
+        <h4 id="autor">Data from Solar System OpenData and bundled reference values</h4>
+    </footer>
+
+    <script src="verificacao.js?v=4"></script>
+</body>
+</html>

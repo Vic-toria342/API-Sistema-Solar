@@ -1,0 +1,440 @@
+/* Main colors used throughout the site */
+:root {
+    --azul-marinho: #082D42;
+    --azul-petroleo: #084966;
+    --azul-acinzentado: #5793A7;
+    --azul-claro: #9CCBD8;
+    --cinza-gelo: #CDD7DF;
+    --fundo-escuro: #041622;
+    --painel: rgba(8, 45, 66, 0.96);
+    --painel-secundario: rgba(8, 73, 102, 0.35);
+    --texto: #F2F7FA;
+    --texto-secundario: #CDD7DF;
+    --borda: rgba(156, 203, 216, 0.25);
+}
+
+/* Start with consistent spacing and sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 6% 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: 32px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--texto);
+    background-color: var(--fundo-escuro);
+    background-image:
+        linear-gradient(rgba(4, 22, 34, 0.38), rgba(4, 22, 34, 0.62)),
+        url("img/img-fundo-page.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Main title */
+.bloco-title-principal {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 1250px;
+    text-align: center;
+    animation: aparecer 0.7s ease both;
+}
+
+#titulo-site {
+    color: var(--azul-claro);
+    font-size: clamp(3rem, 5.5vw, 5.3rem);
+    line-height: 1.1;
+    font-weight: 850;
+    letter-spacing: -2px;
+    text-shadow: 0 4px 25px rgba(8, 45, 66, 0.6);
+}
+
+.principal-subtitle {
+    margin-top: 18px;
+    color: var(--cinza-gelo);
+    font-size: clamp(1.15rem, 2vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Search area */
+.bloco-title-input {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    animation: aparecer 0.7s ease 0.1s both;
+}
+
+.subtitle {
+    margin-bottom: 22px;
+    color: var(--cinza-gelo);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+}
+
+.campo-pesquisa {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+}
+
+#corpo-celeste {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 62px;
+    padding: 0 22px;
+    border: 1px solid var(--azul-acinzentado);
+    border-radius: 14px;
+    outline: none;
+    background: rgba(4, 22, 34, 0.92);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 1.08rem;
+    transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+}
+
+#corpo-celeste::placeholder {
+    color: var(--cinza-gelo);
+    opacity: 0.75;
+}
+
+#corpo-celeste:focus {
+    border-color: var(--azul-claro);
+    background: rgba(8, 45, 66, 0.98);
+    box-shadow: 0 0 0 4px rgba(87, 147, 167, 0.2);
+}
+
+/* Search button */
+#botao-pesquisar {
+    flex: 0 0 180px;
+    min-height: 62px;
+    padding: 0 24px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 14px;
+    background: var(--azul-claro);
+    color: var(--azul-marinho);
+    font-family: inherit;
+    font-size: 1.08rem;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+#botao-pesquisar:hover {
+    background: var(--cinza-gelo);
+    border-color: var(--cinza-gelo);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(4, 22, 34, 0.35);
+}
+
+#botao-pesquisar:active {
+    transform: translateY(0);
+}
+
+#botao-pesquisar:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Result panel */
+.result-search {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 1500px;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+    background: var(--painel);
+    box-shadow: 0 20px 65px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    animation: aparecer 0.4s ease both;
+}
+
+.conteudo-resultado {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.5fr);
+    align-items: center;
+    gap: 28px;
+}
+
+/* Image area */
+.area-imagem {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    background: #000;
+}
+
+.img-resultado {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    border-radius: inherit;
+}
+
+.imagem-indisponivel {
+    color: var(--cinza-gelo);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Data cards */
+.info-planetas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.info-planetas p {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid rgba(156, 203, 216, 0.16);
+    border-radius: 12px;
+    background: rgba(205, 215, 223, 0.055);
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.info-planetas p:hover {
+    border-color: rgba(156, 203, 216, 0.4);
+    background: rgba(87, 147, 167, 0.12);
+}
+
+.info-planetas span {
+    color: var(--texto);
+    font-weight: 650;
+}
+
+#linha-nome {
+    grid-column: 1 / -1;
+    border-color: rgba(156, 203, 216, 0.3);
+    background: var(--painel-secundario);
+    color: var(--azul-claro);
+    font-size: 1.2rem;
+}
+
+#nome-planeta {
+    color: var(--azul-claro);
+    font-size: 1.3rem;
+}
+
+#mensagem {
+    margin-top: 20px;
+    color: var(--azul-claro);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* After a search, place the search form beside the result */
+body:has(#resultado:not([hidden])) {
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.8fr);
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    align-items: start;
+    justify-items: stretch;
+    column-gap: 26px;
+    row-gap: 48px;
+    padding: 35px 4% 20px;
+}
+
+body:has(#resultado:not([hidden])) #titulo-principal {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    text-align: center;
+    justify-self: stretch;
+}
+
+body:has(#resultado:not([hidden])) #titulo-site,
+body:has(#resultado:not([hidden])) #subtitulo-principal {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body:has(#resultado:not([hidden])) #bloco-pesquisa {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    text-align: left;
+}
+
+body:has(#resultado:not([hidden])) #titulo-pesquisa {
+    margin-bottom: 20px;
+    color: var(--cinza-gelo);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1.3;
+}
+
+body:has(#resultado:not([hidden])) .campo-pesquisa {
+    flex-direction: column;
+    gap: 12px;
+}
+
+body:has(#resultado:not([hidden])) #corpo-celeste,
+body:has(#resultado:not([hidden])) #botao-pesquisar {
+    flex: none;
+    width: 100%;
+    min-height: 58px;
+}
+
+body:has(#resultado:not([hidden])) #resultado {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+/* Footer */
+.footer-site {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+}
+
+#autor {
+    color: var(--cinza-gelo);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+}
+
+body:has(#resultado:not([hidden])) #rodape {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* Entrance animation */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Medium screens */
+@media (max-width: 1050px) {
+    body:has(#resultado:not([hidden])) {
+        grid-template-columns: minmax(230px, 0.65fr) minmax(0, 1.35fr);
+        column-gap: 18px;
+        row-gap: 38px;
+        padding: 28px 3%;
+    }
+
+    .result-search { padding: 20px; }
+    .conteudo-resultado { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .area-imagem { max-width: 300px; margin: 0 auto; }
+    .info-planetas { grid-template-columns: minmax(0, 1fr); }
+    #linha-nome { grid-column: auto; }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+    body,
+    body:has(#resultado:not([hidden])) {
+        min-height: 100vh;
+        padding: 28px 16px 16px;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto auto auto;
+        align-content: start;
+        gap: 26px;
+        background-attachment: scroll;
+    }
+
+    body:has(#resultado:not([hidden])) #titulo-principal,
+    body:has(#resultado:not([hidden])) #bloco-pesquisa,
+    body:has(#resultado:not([hidden])) #resultado,
+    body:has(#resultado:not([hidden])) #rodape {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    body:has(#resultado:not([hidden])) #titulo-principal { margin-bottom: 10px; }
+    body:has(#resultado:not([hidden])) #bloco-pesquisa { align-self: auto; text-align: center; }
+    #titulo-site { font-size: clamp(2.4rem, 10vw, 3.7rem); letter-spacing: -1.5px; }
+    .principal-subtitle { margin-top: 12px; font-size: 1rem; }
+
+    .subtitle,
+    body:has(#resultado:not([hidden])) #titulo-pesquisa {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+
+    .campo-pesquisa { flex-direction: column; gap: 12px; }
+
+    #corpo-celeste,
+    #botao-pesquisar,
+    body:has(#resultado:not([hidden])) #corpo-celeste,
+    body:has(#resultado:not([hidden])) #botao-pesquisar {
+        flex: none;
+        width: 100%;
+        height: 56px;
+        min-height: 56px;
+    }
+
+    .result-search { padding: 18px; border-radius: 18px; }
+    .conteudo-resultado { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .area-imagem { max-width: 100%; }
+    .info-planetas { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    #linha-nome { grid-column: auto; }
+    .info-planetas p { padding: 13px; font-size: 0.9rem; }
+    body:has(#resultado:not([hidden])) #rodape { margin-top: 0; }
+    .footer-site { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
